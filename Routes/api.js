@@ -26,8 +26,8 @@ router.post('/users', async (req, res) => {
 
 router.post('/users/check', async (req, res) => {
   try {
-    const { Licence, ComputerId } = req.body;
-    const user = await User.findOne({ Licence, ComputerId }).exec();
+    const { License, ComputerId } = req.body;
+    const user = await User.findOne({ License, ComputerId }).exec();
     if (user) {
       res.json({ message: 'User  found' });
     } else {
