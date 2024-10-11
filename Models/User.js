@@ -1,20 +1,42 @@
 const mongoose = require("mongoose");
-const express = require("express");
-const router = express.Router();
 const { Schema } = mongoose;
 
 const UserSchema = new Schema(
-  {
-    License: {
-      type: String,
-      require: true,
+    {
+        License: {
+            type: String,
+            required: true,
+            unique: true // Ensures License is unique and cannot be duplicated
+        },
+        ComputerId: {
+            type: String,
+            required: true,
+        },
+        VrID: { // VrID
+            type: String,
+            required: true,
+        },
+        Email: {
+            type: String,
+            required: true,
+        },
+        Country: {
+            type: String,
+            required: true,
+        },
+        DiscordId: {
+            type: String,
+        },
+        UnityPackageName: { //   UnityPackageName
+            type: String,
+            required: true,
+        },
+        WebsiteSource: {
+            type: String,
+            required: true,
+        }
     },
-    ComputerId: {
-      type: String,
-      require: true,
-    },
-  },
-  { timestamps: true }
+    { timestamps: true }
 );
 
-module.exports = mongoose.model("user", UserSchema);
+module.exports = mongoose.model("User", UserSchema);
